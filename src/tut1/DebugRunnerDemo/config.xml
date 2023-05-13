@@ -1,0 +1,23 @@
+<config>
+	<test driver="MakeRandom" method="main" label="Assignment 0: Make 6 Random Integers">
+		<args>6</args>
+
+		<mark grade="40">
+			<check label="counting integers check"><regex>(\d*) (\d*) (\d*) (\d*) (\d*) (\d*)</regex></check>
+		</mark>
+	</test>
+	<test driver="MakeRandom" method="main" label="Assignment 0: Make 3 Random Integers">
+		<args>3</args>
+
+		<mark grade="40">
+			<check label="counting integers check"><regex>(\d*) (\d*) (\d*)</regex></check>
+		</mark>
+	</test>
+	<test driver="MakeRandom" method="main" label="Assignment 0: Testing Random Seed Usage">
+		<args>100 5</args>
+
+		<mark grade="20">
+			<check label="counting integers check"><regex>1550503915 1577676250 418707874 1537175988 1432714291</regex></check>
+		</mark>
+	</test>
+</config>
