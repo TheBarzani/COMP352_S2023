@@ -189,33 +189,7 @@ class binaryTree {
         }
     }
 
-    public boolean isBST(Node node, int minKey, int maxKey)
-    {
-        // base case
-        if (node == null) {
-            return true;
-        }
- 
-        // if the node's value falls outside the valid range
-        if (node.data < minKey || node.data > maxKey) {
-            return false;
-        }
- 
-        // recursively check left and right subtrees with an updated range
-        return isBST(node.leftChild, minKey, node.data) &&
-            isBST(node.rightChild, node.data, maxKey);
-    }
- 
-    // Function to determine whether a given binary tree is a BST
-    public void isBST()
-    {
-        if (isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
-            System.out.println("The tree is a BST.");
-        }
-        else {
-            System.out.println("The tree is not a BST!");
-        }
-    }
+    
     
     // Driver code
     public static void main(String[] args)
