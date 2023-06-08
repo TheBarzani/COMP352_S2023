@@ -146,7 +146,27 @@ public class HuffmanCode
     
     public static Character mostFreq(Node root){
 
+        if (root == null) return null;
 
+        Queue<Node> q = new LinkedList<Node>();
+        Node temp = root;
+        q.add(root);
+        while(!q.isEmpty()){
+            if(root.left == null && root.right == null) break;
+            if(root.left != null) q.add(root.left);
+            if(root.right != null) q.add(root.right);
+            root = q.poll();
+        }
+        q.clear();
+        q.add(temp);
+        while(!q.isEmpty()){
+            if(temp.left == null && temp.right == null) break;
+            if(temp.right != null) q.add(temp.right);
+            if(temp.left != null) q.add(temp.left);
+            temp = q.poll();
+        }
+
+        return (temp.freq > root.freq) ? temp.ch: root.ch;
     }
 
     //driver code  
