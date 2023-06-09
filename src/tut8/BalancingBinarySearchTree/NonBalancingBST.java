@@ -156,8 +156,7 @@ class NonBalancingBST{
         // Wrappers over above recursive functions
         void printPostorder() { printPostorder(root); }   
 
-}
-class Main{
+        
     public static void main(String[] args)  { 
        //create a BST object
         NonBalancingBST bst = new NonBalancingBST(); 
