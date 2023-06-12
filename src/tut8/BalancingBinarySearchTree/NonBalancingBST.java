@@ -154,21 +154,52 @@ class NonBalancingBST{
         }
        
         // Wrappers over above recursive functions
-        void printPostorder() { printPostorder(root); }   
+        void printPostorder() { printPostorder(root); } 
+        
+        
+        public int height(Node k){
+            if (k == null)
+                return 0;
+            return Math.max(height(k.left), height(k.right)) + 1;
+        }
+        
+        private boolean isBalanced(Node k){
 
+            if (k == null) return true;
+            
+            int leftHeight = height(k.left);
+            int rightHeight = height(k.right);
+
+            if ((Math.abs(leftHeight - rightHeight) <= 1) && isBalanced(k.left) && isBalanced(k.right)) 
+                return true;
+            return false;
+        }
+
+        public boolean isBalanced(){
+            return isBalanced(root);
+        }
         
     public static void main(String[] args)  { 
        //create a BST object
         NonBalancingBST bst = new NonBalancingBST(); 
         /* BST tree example*/
         //insert data into BST
-        bst.insert(1); 
-        bst.insert(2); 
-        bst.insert(3); 
-        bst.insert(4); 
-        bst.insert(5); 
+        // bst.insert(1); 
+        // bst.insert(2); 
+        // bst.insert(3); 
+        // bst.insert(4); 
+        // bst.insert(5); 
+        // bst.insert(6);
+        // bst.insert(8);
+        
+        bst.insert(4);
         bst.insert(6);
-        bst.insert(8); 
+        bst.insert(2);
+        bst.insert(1);
+        bst.insert(3);
+        bst.insert(5);
+        bst.insert(8);
+        
         //print the BST
         System.out.println("\nThe BST Created with input data (Left-root-right):"); 
         bst.inorder(); 
@@ -182,6 +213,8 @@ class NonBalancingBST{
         bst.printPostorder();
 
         System.out.println("\n");
+
+        System.out.println(bst.isBalanced());
         
      } 
 }
