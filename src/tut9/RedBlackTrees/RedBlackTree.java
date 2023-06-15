@@ -460,7 +460,21 @@ public class RedBlackTree {
       return this.root;
   }
 
+    // Search the tree helper method
+  private Node searchTreeHelper(Node node, int key) {
+      if (node == TNULL || key == node.data) {
+          return node;
+      }
 
+      if (key < node.data) {
+          return searchTreeHelper(node.left, key);
+      }
+      return searchTreeHelper(node.right, key);
+  }
+
+  public Node searchTree(int k) {
+    return searchTreeHelper(this.root, k);
+  }
 
   public static void main(String[] args) {
     RedBlackTree bst = new RedBlackTree();
